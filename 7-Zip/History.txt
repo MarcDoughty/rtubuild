@@ -1,6 +1,22 @@
 HISTORY of the 7-Zip
 --------------------
 
+18.01          2018-01-28
+-------------------------
+- 7-Zip now can unpack DMG archives that use LZFSE compression method.
+- 7-Zip now doesn't allow update operation for archives that have read-only attribute.
+- The BUG was fixed:
+  extracting from tar with -si switch didn't set timestamps for directories.
+- Some bugs were fixed.
+
+
+18.00 beta     2018-01-10
+-------------------------
+- 7-Zip now can unpack OBJ/COFF files.
+- new -sse switch to stop archive creating, if 7-Zip can't open some input file. 
+- Some bugs were fixed.
+
+
 17.01 beta     2017-08-28
 -------------------------
 - Minor speed optimization for LZMA2 (xz and 7z) multi-threading compression.
