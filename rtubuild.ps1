@@ -1,5 +1,5 @@
 Import-Module Dism
-Set-Location C:\RTUBUILD
+#Set-Location C:\RTUBUILD
 
 $DateStamp = (Get-Date -UFormat %Y%m%d)
 $LogPath   = (-Join ("logs\rtubuild-",$DateStamp,".log"))
@@ -68,17 +68,6 @@ ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10
 	Write-Host ""
 	}
 
-# Windows 1703
-##ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10.0.15063.*"))
-##	{
-##	$MountedImagePath = ($MountedImage.FullName)
-##	Write-Host "Servicing $MountedImagePath"
-##	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\win10-1703"
-##	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\win10-1703"
-##	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "RSATClient-Roles-AD-Powershell" -All
-##  Write-Host ""
-##	}
-
 # Windows 1709
 ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10.0.16299.*"))
 	{
@@ -86,6 +75,17 @@ ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10
 	Write-Host "Servicing $MountedImagePath"
 	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\win10-1709"
 	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\win10-1709"
+	Write-Host ""
+	Write-Host ""
+	Write-Host ""	}
+	
+# Windows 1803
+ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10.0.17134.*"))
+	{
+	$MountedImagePath = ($MountedImage.FullName)
+	Write-Host "Servicing $MountedImagePath"
+	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\win10-1803"
+	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\win10-1803"
 	Write-Host ""
 	Write-Host ""
 	Write-Host ""	}
@@ -98,7 +98,6 @@ ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "*Server 2016*
 	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\srv2016-1709"
 	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\srv2016-1709"
 	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "ActiveDirectory-PowerShell" -All
-	#Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "WindowsServerBackup" -All
 	Write-Host ""
 	Write-Host ""
 	Write-Host ""
