@@ -55,6 +55,32 @@ ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "*Server 2016*
 	Write-Host ""
 	}
 
+# Server 1709 - DEPRECATED
+ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "*Server 2016*10.0.16299.*"))
+	{
+	$MountedImagePath = ($MountedImage.FullName)
+	Write-Host "Servicing $MountedImagePath"
+	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\srv2016-1709"
+	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\srv2016-1709"
+	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "ActiveDirectory-PowerShell" -All
+	Write-Host ""
+	Write-Host ""
+	Write-Host ""
+	}
+	
+# Server 1803
+ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "*Server 2016*10.0.17134.*"))
+	{
+	$MountedImagePath = ($MountedImage.FullName)
+	Write-Host "Servicing $MountedImagePath"
+	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\srv2016-1803"
+	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\srv2016-1803"
+	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "ActiveDirectory-PowerShell" -All
+	Write-Host ""
+	Write-Host ""
+	Write-Host ""
+	}
+	
 # Windows 1607
 ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10.0.14393.*"))
 	{
@@ -89,19 +115,6 @@ ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "Windows 10*10
 	Write-Host ""
 	Write-Host ""
 	Write-Host ""	}
-
-# Server 1709
-ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0 "*Server 2016*10.0.16299.*"))
-	{
-	$MountedImagePath = ($MountedImage.FullName)
-	Write-Host "Servicing $MountedImagePath"
-	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "NetFx3" -All -Source ".\packages\srv2016-1709"
-	Add-WindowsPackage -Verbose -Path "$MountedImagePath" -PackagePath ".\packages\srv2016-1709"
-	Enable-WindowsOptionalFeature -Verbose -Path "$MountedImagePath" -FeatureName "ActiveDirectory-PowerShell" -All
-	Write-Host ""
-	Write-Host ""
-	Write-Host ""
-	}
 
 
 ForEach ($MountedImage in (Get-ChildItem -Path .\mounts\ -Depth 0))
