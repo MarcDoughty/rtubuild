@@ -1,0 +1,6 @@
+Obviously, replace any superseded ones. This was as of 201805
+
+microsoft-windows-netfx3-ondemand-package.cab - from inside the ISO's sources\sxs folder
+windows10.0-kb3186568-x64_086bd10d344a5bb614725135a1589cd784d1e768.msu
+windows10.0-kb4103720-x64_c1fb7676d38fffae5c28b9216220c1f033ce26ac.msu
+windows10.0-kb4132216-x64_9cbeb1024166bdeceff90cd564714e1dcd01296e.msu

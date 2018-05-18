@@ -1,5 +1,5 @@
 Import-Module Dism
-#Set-Location C:\RTUBUILD
+Set-Location C:\RTUBUILD
 
 ForEach ($ISO in (Get-ChildItem -Recurse isos\*.ISO))
 	{
