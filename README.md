@@ -1,5 +1,10 @@
-RTUBUILD - A helper script to automate and standardize Windows Offline Servicing
-Marc Doughty 2018
+**RTUBUILD - A helper script to automate and standardize Windows Offline Servicing**
+
+Marc Doughty, 2018
+
+Purpose:
+
+Offline servicing is great, and there are mechanisms to do it in SCCM, but I wanted to create a simple, repeatable, logged offline servicing tool that would build updated WIMs from ISOs, CABs, and MSUs.
 
 Usage:
 
